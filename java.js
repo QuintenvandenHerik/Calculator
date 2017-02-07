@@ -36,8 +36,7 @@ function addDot() {
 	}
 }
 
-function remove(clear) {
-	console.log(clear);
+function remove() {
 	register.innerHTML = 0;
 	MAXLENGTH = 22;
 	number1 = 0;
@@ -52,6 +51,7 @@ function remove(clear) {
 function operatorsPlus() {
 	var Plus = register.innerHTML.indexOf("+");
 	if (Plus === -1) {
+		operator = "+";
 		register.innerHTML = register.innerHTML + "+";
 		number1 = register.innerHTML;
 		number1 = number1.replace("+", "");
@@ -64,6 +64,7 @@ function operatorsPlus() {
 function operatorsMin() {
 	var Min = register.innerHTML.indexOf("-");
 	if (Min === -1) {
+		operator = "-";
 		register.innerHTML = register.innerHTML + "-";
 		number1 = register.innerHTML;
 		register.innerHTML = "0";
@@ -77,6 +78,7 @@ function operatorsMin() {
 function operatorsDeel() {
 	var Deel = register.innerHTML.indexOf("÷");
 	if (Deel === -1) {
+		operator = "÷";
 		register.innerHTML = register.innerHTML + "÷";
 		number1 = register.innerHTML;
 		register.innerHTML = "0";
@@ -90,6 +92,7 @@ function operatorsDeel() {
 function operatorsKeer() {
 	var Keer = register.innerHTML.indexOf("x");
 	if (Keer === -1) {
+		operator = "x";
 		register.innerHTML = register.innerHTML + "x";
 		number1 = register.innerHTML;
 		register.innerHTML = "0";
@@ -106,7 +109,26 @@ function operatorsIs() {
 		register.innerHTML = register.innerHTML + "=";
 		number2 = register.innerHTML;
 		number2 = number2.replace("=", "");
-		register.innerHTML = Number(number1) + Number(number2);
+		
+		if (operator === "+") {
+		register.innerHTML = +(Number(number1) + Number(number2)).toFixed(1);
+		}
+		else {
+			if (operator === "-") {
+				register.innerHTML = +(Number(number1) - Number(number2)).toFixed(1);
+			}
+			else {
+				if (operator === "÷") {
+					register.innerHTML = Number(number1) / Number(number2);
+				}
+
+				else {
+					if (operator === "x") {
+						register.innerHTML = Number(number1) * Number(number2);
+					}
+				}
+			}
+		}
 	}
 	console.log(operator);
 	console.log(number1);
