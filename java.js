@@ -114,20 +114,20 @@ function OperatorsIs() {
 		gNumber2 = gNumber2.replace("=", "");
 		
 		if (gOperator === "+") {
-		gRegister.innerHTML = ((Number(gNumber1) * 10) + (Number(gNumber2) * 10))/10;
+		gRegister.innerHTML = ((Number(gNumber1) * 100000000000000000000) + (Number(gNumber2) * 100000000000000000000))/100000000000000000000;
 		}
 		else {
 			if (gOperator === "-") {
-				gRegister.innerHTML = ((Number(gNumber1) * 10) - (Number(gNumber2) * 10))/10;
+				gRegister.innerHTML = ((Number(gNumber1) * 100000000000000000000) - (Number(gNumber2) * 100000000000000000000))/100000000000000000000;
 			}
 			else {
 				if (gOperator === "÷") {
-					gRegister.innerHTML = ((Number(gNumber1) * 10) / (Number(gNumber2) * 10));
+					gRegister.innerHTML = ((Number(gNumber1) * 100000000000000000000) / (Number(gNumber2) * 100000000000000000000));
 				}
 
 				else {
 					if (gOperator === "x") {
-						gRegister.innerHTML = ((Number(gNumber1) * 10) * (Number(gNumber2) * 10))/10;
+						gRegister.innerHTML = ((Number(gNumber1) * 100000000000000000000) * (Number(gNumber2) * 100000000000000000000))/100000000000000000000;
 					}
 				}
 			}
